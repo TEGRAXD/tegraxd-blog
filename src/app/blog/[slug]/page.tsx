@@ -79,7 +79,7 @@ export default async function NotePage({ params } : { params: Promise<{ slug: st
     <section className="bg-gray-900 text-white">
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-lg text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl hover:font-mono">Kickstart your marketing</h2>
+          <h2 className="text-3xl font-bold sm:text-4xl hover:font-mono">{post.metadata.title}</h2>
 
           <p className="mt-4 text-gray-300">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur aliquam doloribus
@@ -87,9 +87,7 @@ export default async function NotePage({ params } : { params: Promise<{ slug: st
           </p>
         </div>
 
-        <div className="mt-8">
-          <h1>{post.metadata.title}</h1>
-          <h1>{slug}</h1>
+        <div className="mt-4">
           <MarkdownRender content={post.content} />
         </div>
       </div>

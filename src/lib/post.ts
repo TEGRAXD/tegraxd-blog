@@ -3,7 +3,7 @@ import matter from 'gray-matter';
 import path from 'path';
 import { notFound } from 'next/navigation';
 
-const contentDirectory = path.join(process.cwd(), 'public/markdown');
+const contentDirectory = path.join(process.cwd(), 'src/markdown');
 
 export default function getPost({ slug }: { slug: string }) {
 
@@ -15,16 +15,10 @@ export default function getPost({ slug }: { slug: string }) {
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
-  // console.log(filename);
-  console.log('x');
-
-  // Use gray-matter to parse metadata and content
   const { data, content } = matter(fileContents);
 
-  // Extract the title from the first heading (`#`) and content
   const lines = content.split('\n');
 
-  // Find the first non-empty line that starts with `#` for the title
   const titleLine = lines.find(line => line.trim().startsWith('#'));
   const titleLineIndex = lines.findIndex(line => line.trim().startsWith('#'));
 
@@ -32,15 +26,14 @@ export default function getPost({ slug }: { slug: string }) {
 
   const title = titleLine ? titleLine.replace(/^#\s*/, '').trim() : 'Untitled';
 
-  // Remove the title line and construct the body
   const body = lines.filter(line => line.trim() !== titleLine).join('\n').trim();
 
   return {
-    slug: slug, // Use filename as slug
+    slug: slug, 
     metadata: {
-      ...data, // Frontmatter metadata (e.g., author, date)
-      title,   // Extracted title
+      ...data,
+      title,
     },
-    content: body, // Content without the first heading
+    content: body,
   };
 }
