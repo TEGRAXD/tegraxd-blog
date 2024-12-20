@@ -34,7 +34,7 @@
 // import marked
 // import { marked } from 'marked';
 // import DOMPurify from 'dompurify';
-import MarkdownRender from '@/components/markdownRender';
+import MarkdownRender from '@/components/MarkdownRender';
 import getPost from '@/lib/post';
 
 // export async function generateStaticParams() {
@@ -75,15 +75,15 @@ export default async function NotePage({ params } : { params: Promise<{ slug: st
   //   </div>
   // );
 
+  // <div className="mx-auto max-w-lg text-center">
   return (
-    <section className="bg-gray-900 text-white">
-      <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-        <div className="mx-auto max-w-lg text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl hover:font-mono">{post.metadata.title}</h2>
+    <section className="bg-white dark:bg-midnight">
+      <div className="mx-auto min-h-screen max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+        <div>
+          <h2 className="text-3xl font-bold sm:text-4xl text-black dark:text-white">{post.metadata.title}</h2>
 
-          <p className="mt-4 text-gray-300">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur aliquam doloribus
-            nesciunt eos fugiat. Vitae aperiam fugit consequuntur saepe laborum.
+          <p className="mt-4 text-black dark:text-gray-300">
+            {post.metadata.description}
           </p>
         </div>
 

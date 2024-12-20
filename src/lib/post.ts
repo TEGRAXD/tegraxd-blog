@@ -19,20 +19,25 @@ export default function getPost({ slug }: { slug: string }) {
 
   const lines = content.split('\n');
 
-  const titleLine = lines.find(line => line.trim().startsWith('#'));
-  const titleLineIndex = lines.findIndex(line => line.trim().startsWith('#'));
+  // const titleLine = lines.find(line => line.trim().startsWith('#'));
+  // const titleLineIndex = lines.findIndex(line => line.trim().startsWith('#'));
 
-  lines.splice(titleLineIndex, 1);
+  // lines.splice(titleLineIndex, 1);
 
-  const title = titleLine ? titleLine.replace(/^#\s*/, '').trim() : 'Untitled';
+  // const title = titleLine ? titleLine.replace(/^#\s*/, '').trim() : 'Untitled';
 
-  const body = lines.filter(line => line.trim() !== titleLine).join('\n').trim();
+  // const body = lines.filter(line => line.trim() !== titleLine).join('\n').trim();
+
+  // const title = data.title || 'Untitled';
+  const body = lines.join('\n').trim();
 
   return {
     slug: slug, 
     metadata: {
       ...data,
-      title,
+      title: data.title || 'Untitled',
+      description: data.description,
+      date: data.date
     },
     content: body,
   };

@@ -1,7 +1,8 @@
 ---
-author: XXX
+author: TEGRAXD
+title: Testmd
+description: Description
 date: 2024-11-19T10:12:22.708Z
-updated: 2024-11-19T12:39:36.049Z
 ---
 
 # TestMD
@@ -19,9 +20,9 @@ Several users have reported difficulties following this guide due to skipped ste
 ## Setting up XXX
 
 1. Install the required tools by running:
-   ```bash
-   sudo apt-get install xxx
-   ```
+  ```bash
+  sudo apt-get install xxx
+  ```
 2. Configure the environment by creating a new config file:
   ```bash
   touch /etc/xxx/config.yaml
