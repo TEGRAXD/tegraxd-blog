@@ -48,7 +48,8 @@ export default function MarkdownRender({ content }: { content: string }) {
   const renderer = new marked.Renderer();
 
   renderer.paragraph = ({text}) => {
-    return `<p class="text-lg text-black dark:text-gray-300">${marked.parseInline(text)}</p>`;
+    console.log(marked.parseInline(text).toString().replaceAll('<code>', '<code class="hljs text-sm p-1 rounded-md">'));
+    return `<p class="text-md text-black dark:text-gray-300">${marked.parseInline(text).toString().replaceAll('<code>', '<code class="hljs text-sm p-1 rounded-md">')}</p>`;
   }
 
   renderer.heading = ({text, depth}) => {
@@ -57,7 +58,7 @@ export default function MarkdownRender({ content }: { content: string }) {
 
     return `
       <h${depth} id="${id}" class="group/head relative border-b border-gray-400 dark:border-gray-600 text-2xl font-semibold mt-4 mb-4 text-black dark:text-gray-100 flex items-center">
-        ${escapedText}
+        ${marked.parseInline(escapedText).toString().replaceAll('<code>', '<code class="hljs text-sm p-1 rounded-md">')}
         <a href="#${id}" class="group/pilcrow inline-block no-underline ms-2 invisible group-hover/head:visible group-hover/head:text-gray-500 dark:group-hover/head:text-gray-400">
           <div class="group-hover/pilcrow:text-black dark:group-hover/pilcrow:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 15 15">
@@ -68,6 +69,12 @@ export default function MarkdownRender({ content }: { content: string }) {
       </h${depth}>
     `;
   };
+
+  renderer.codespan = ({text}) => {
+    const escapedCode = DOMPurify.sanitize(text);
+
+    return `<code class="hljs text-sm p-1 rounded-md">${escapedCode}</code>`;
+  }
 
   renderer.code = ({text, lang}) => {
     const escapedCode = DOMPurify.sanitize(text);

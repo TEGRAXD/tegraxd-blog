@@ -1,11 +1,11 @@
 ---
 title: Setting up Cloudflared with Docker for Tunnel
 description: A step-by-step guide to setting up Cloudflared with Docker for tunneling traffic to your origin server.
-date: 2024-11-19T10:12:22.708Z
+date: 2025-01-15T00:00:00.000Z
 ---
 
 # Setting up Cloudflared with Docker for Tunnel
-This guide will help you set up Cloudflared using Docker to create a secure, reliable tunnel to your application.
+This guide will help you set up Cloudflared using Docker to create a secure, reliable tunnel to your application `test`.
 
 ## Prerequisites
 1. Docker installed on the system.
@@ -43,4 +43,4 @@ This guide will help you set up Cloudflared using Docker to create a secure, rel
 10. Back to your tunnel in Cloudflare One. Under connectors, there will be your machine connected if you successfully setting up Cloudflared.
 
 ## Public Hostname
-You can put your service/app in Public Hostname by setting your domain and service type and URL. Usually for website service/app, I use HTTP and URL with container name or docker exposed IP:port (e.g., portainer:9000 or 172.0.0.1:port)  
+You can put your service/app in Public Hostname by setting your domain and service type and URL. Usually for website service/app, I use HTTP and URL with container name or docker exposed IP:port (e.g., `portainer:9000` or `172.0.0.1:port`).

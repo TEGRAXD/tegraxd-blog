@@ -6,6 +6,7 @@ import { FaDesktop, FaMoon, FaSun } from "react-icons/fa";
 
 export default function ThemeSwitch() {
   const { theme, setTheme, resolvedTheme } = useTheme();
+
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 

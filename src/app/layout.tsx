@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { ThemeProvider } from 'next-themes';
-import { Inter, Roboto_Mono } from 'next/font/google'
+import { ThemeProvider } from "next-themes";
+import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -36,9 +36,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-      <body className={`${inter.variable} ${robotoMono.variable}`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true}>
+      <body className={`${inter.variable} ${robotoMono.variable} transition-colors duration-300`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true}>
           {children}
         </ThemeProvider>
       </body>

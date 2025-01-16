@@ -33,7 +33,7 @@ export default function BlogPosts() {
         <hr className="mb-4 sm:mb-8 border-gray-300 dark:border-gray-700" />
         <div className="divide-y divide-gray-300 dark:divide-gray-700">
           {posts.map(({ slug, metadata }, index) => (
-            <div key={slug} className={ index == 0 ? "pb-8" : (index == posts.length - 1 ? "pt-8" : "pt-8 pb-8")}>
+            <div key={slug} className={ posts.length > 1 ? (index == 0 ? "pb-8" : (index == posts.length - 1 ? "pt-8" : "pt-8 pb-8")) : ""}>
               <h5 className="text-xl font-bold sm:text-xl text-black dark:text-white">{metadata.title}</h5>
               <div className="flex flex-wrap">
                 <time dateTime={new Date(metadata.date).toISOString()} className="text-sm font-medium capitalize text-pink-500 hover:text-pink-600 dark:hover:text-pink-400">{format(new Date(metadata.date), "MMMM dd, yyyy")}</time>
