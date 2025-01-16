@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { Marked, marked } from 'marked';
-import { markedHighlight } from 'marked-highlight'
+import { markedHighlight } from 'marked-highlight';
 import DOMPurify from 'isomorphic-dompurify';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github-dark-dimmed.css';
