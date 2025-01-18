@@ -20,7 +20,8 @@ export const metadata: Metadata = {
   description: "A scattered notes written by quiet person.",
   keywords: "blog, writing, code, programming, software, development, web",
   icons: {
-    icon: "/favicon.ico",
+    icon: "./favicon.ico",
+    shortcut: "./favicon.ico",
   }
 };
 

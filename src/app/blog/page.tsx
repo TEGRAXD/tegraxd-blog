@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   ...defaultMetadata,
-  title: `blog - ${process.env.NEXT_PROJECT_NAME}`,
+  title: `blog - ${process.env.PROJECT_NAME}`,
 };
 
 export default function BlogPage() {  

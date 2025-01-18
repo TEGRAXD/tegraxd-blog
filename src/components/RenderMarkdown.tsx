@@ -7,7 +7,7 @@ import DOMPurify from 'isomorphic-dompurify';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github-dark-dimmed.css';
 
-export default function MarkdownRender({ content }: { content: string }) {
+export default function RenderMarkdown({ content }: { content: string }) {
   // useEffect is used to add event listeners to the copy buttons
   useEffect(() => {
     const copyButtons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.copy-btn');
@@ -48,7 +48,6 @@ export default function MarkdownRender({ content }: { content: string }) {
   const renderer = new marked.Renderer();
 
   renderer.paragraph = ({text}) => {
-    console.log(marked.parseInline(text).toString().replaceAll('<code>', '<code class="hljs text-sm p-1 rounded-md">'));
     return `<p class="text-md text-black dark:text-gray-300">${marked.parseInline(text).toString().replaceAll('<code>', '<code class="hljs text-sm p-1 rounded-md">')}</p>`;
   }
 

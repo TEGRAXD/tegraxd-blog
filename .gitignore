@@ -3,6 +3,9 @@
 # contents
 /markdown
 
+# next.config.ts
+next.config.ts
+
 # dependencies
 /node_modules
 /.pnp

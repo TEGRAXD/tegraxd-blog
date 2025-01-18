@@ -1,0 +1,28 @@
+services:
+  tegraxd-blog:
+    build:
+      context: . # Path to the app directory
+      dockerfile: Dockerfile # Path to the Dockerfile
+    container_name: tegraxd-blog
+    # user: x:x # UID:GID
+    restart: unless-stopped
+    environment:
+      NEXT_PROJECT_NAME: ${NEXT_PROJECT_NAME}
+      NEXT_GITHUB_USERNAME: ${NEXT_GITHUB_USERNAME}
+      NEXT_GITHUB_ID: ${NEXT_GITHUB_ID}
+      NEXT_GITHUB_AVATAR: ${NEXT_GITHUB_AVATAR}
+      NEXT_X_USERNAME: ${NEXT_X_USERNAME}
+      NEXT_DISCORD_USERNAME: ${NEXT_DISCORD_USERNAME}
+      NEXT_QUOTE_TEXT: ${NEXT_QUOTE_TEXT}
+      NEXT_QUOTE_AUTHOR: ${NEXT_QUOTE_AUTHOR}
+      NEXT_QUOTE_AVATAR: ${NEXT_QUOTE_AVATAR}
+      NEXT_QUOTE_TITLE: ${NEXT_QUOTE_TITLE}
+    networks:
+     - cloudflared
+    volumes:
+      - .:/usr/src/app # Path to the app
+      - /usr/app/node_modules # Create a volume for node_modules
+
+networks:
+  cloudflared:
+    external: true

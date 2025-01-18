@@ -1,0 +1,30 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+  env: {
+    PROJECT_NAME: process.env.NEXT_PROJECT_NAME,
+    GITHUB_USERNAME: process.env.NEXT_GITHUB_USERNAME,
+    GITHUB_ID: process.env.NEXT_GITHUB_ID,
+    GITHUB_AVATAR: process.env.NEXT_GITHUB_AVATAR,
+    X_USERNAME: process.env.NEXT_X_USERNAME,
+    DISCORD_USERNAME: process.env.NEXT_DISCORD_USERNAME,
+    QUOTE_TEXT: process.env.NEXT_QUOTE_TEXT,
+    QUOTE_AUTHOR: process.env.NEXT_QUOTE_AUTHOR,
+    QUOTE_AVATAR: process.env.NEXT_QUOTE_AVATAR,
+    QUOTE_TITLE: process.env.NEXT_QUOTE_TITLE,
+  },
+  images: {
+    remotePatterns: [
+      // Add your image remote patterns here
+      {
+        protocol: 'https',
+        hostname: '', // Example: 'avatars.githubusercontent.com'
+        port: '',
+        pathname: '**',
+      },
+    ],
+  }
+};
+
+export default nextConfig;
