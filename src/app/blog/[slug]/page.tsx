@@ -1,6 +1,7 @@
-import MarkdownRender from '@/components/MarkdownRender';
+import MarkdownRender from '@/components/RenderMarkdown';
 import getPost from '@/lib/post';
 import Navbar from '@/components/Navbar';
+import Image from 'next/image';
 import { metadata as defaultMetadata } from '@/app/layout';
 import type { Metadata } from 'next';
 import { format } from 'date-fns';
@@ -11,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     ...defaultMetadata,
-    title: `${post.metadata.title} - ${process.env.NEXT_PROJECT_NAME}`,
+    title: `${post.metadata.title} - ${process.env.PROJECT_NAME}`,
     description: post.metadata.description
   };
 }
@@ -34,9 +35,10 @@ export default async function NotePage({ params } : { params: Promise<{ slug: st
             </p>
           </div>
           <div className='flex items-center mt-4'>
-            <img className="w-16 h-16 rounded-full" src={process.env.NEXT_PUBLIC_GITHUB_AVATAR} alt="Avatar"></img>
+            {/* <img className="w-16 h-16 rounded-full" src={process.env.GITHUB_AVATAR} alt="Avatar"></img> */}
+            <Image src={process.env.GITHUB_AVATAR ?? ''} alt="Avatar" width={64} height={64} className="rounded-full" />
             <div className="ms-2">
-              <p className="text-black dark:text-gray-300">{process.env.NEXT_PUBLIC_GITHUB_USERNAME}</p>
+              <p className="text-black dark:text-gray-300">{process.env.GITHUB_USERNAME}</p>
               <time dateTime={new Date(post.metadata.date).toISOString()} className="text-sm font-medium capitalize text-black dark:text-gray-300">{format(new Date(post.metadata.date), "MMM dd, yyyy")}</time>
             </div>
           </div>
