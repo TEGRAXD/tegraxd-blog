@@ -6,6 +6,7 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "selector",
   theme: {
     extend: {
       fontFamily: {
@@ -15,10 +16,18 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        midnight: '#0D1117',
       },
-      typography: {
-        
-      }
+      typography: {},
+      keyframes: {
+        shimmer: {
+          '0%': { transform: "translateX(-100%)" },
+          '100%': { transform: "translateX(100%)" },
+        },
+      },
+      animation: {
+        shimmer: 'shimmer 2s infinite',
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

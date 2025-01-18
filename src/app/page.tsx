@@ -1,101 +1,60 @@
-import Image from "next/image";
+'use client';
+
+import Navbar from "@/components/Navbar";
+import Link from "next/link";
+import { MdArrowOutward } from "react-icons/md";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main>
+      <Navbar />
+      <div className="flex min-h-screen flex-col items-center bg-white dark:bg-midnight pt-24">
+        <section className="max-w-lg px-8 sm:p-0">
+          <h1 className="mb-4 text-2xl font-semibold">Heya!</h1>
+          <p>I am a Software Engineer who lives under your bed.</p>
+          <p>Loves to build open-source libraries for some community or <i>myself</i> and someone who always dedicated to continously learning best practices.</p>
+          <p className="pt-6">P.S. Please be gentle to this wandering soul.</p>
+          <ul className="mt-8 flex flex-col space-y-1">
+            <li className="flex flex-wrap">
+              <Link href={ `https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}` } target="_blank" rel="noopener noreferrer">
+                <div className="flex flex-wrap items-center text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z" fill="currentColor"></path>
+                  </svg>
+                  <span className="font-medium ms-2">Github</span>
+                </div>
+              </Link>
+            </li>
+            <li className="flex flex-wrap">
+              <Link href={ `https://x.com/${process.env.NEXT_PUBLIC_X_USERNAME}` } target="_blank" rel="noopener noreferrer">
+                <div className="flex flex-wrap items-center text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z" fill="currentColor"></path>
+                  </svg>
+                  <span className="font-medium ms-2">X</span>
+                </div>
+              </Link>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <footer className="absolute bottom-0 w-full bg-white dark:bg-midnight">
+        <div className="my-6">
+          <figure className="text-center max-w-full">
+            <div className="mt-0 mb-0 flex flex-wrap justify-center">
+                <div className=""></div>
+                <p className="text-xl font-semibold italic">"To be alive is to be the light that illuminates every path"</p>
+            </div>
+            <figcaption className="flex items-center mt-2 space-x-3 rtl:space-x-reverse justify-center">
+                <img className="w-6 h-6 rounded-full" src={ process.env.NEXT_PUBLIC_GITHUB_AVATAR } alt="profile picture" />
+                <div className="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-300 dark:divide-gray-700">
+                    <span className="pe-3 font-medium text-gray-900 dark:text-white">{ process.env.NEXT_PUBLIC_GITHUB_USERNAME }</span>
+                    <span className="ps-3 text-sm text-gray-500 dark:text-gray-400">No one</span>
+                </div>
+            </figcaption>
+          </figure>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
       </footer>
-    </div>
+    </main>
   );
 }

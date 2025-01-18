@@ -1,21 +1,18 @@
-import Link from 'next/link';
-import { getAllPosts } from '@/lib/posts';
+import Navbar from '@/components/Navbar';
+import BlogPosts from '@/components/BlogPosts';
+import { metadata as defaultMetadata } from '@/app/layout';
+import type { Metadata } from 'next';
 
-export default function BlogPage() {
-  const posts = getAllPosts();
+export const metadata: Metadata = {
+  ...defaultMetadata,
+  title: `blog - ${process.env.NEXT_PROJECT_NAME}`,
+};
 
+export default function BlogPage() {  
   return (
-    <div>
-      <h1>Blog</h1>
-      <ul>
-        {posts.map(({slug, metadata}) => (
-          <li key={slug}>
-            <Link href={`/blog/${slug}`}>
-              <h2>{metadata.title}</h2>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <main className="bg-white dark:bg-midnight">
+      <Navbar />
+      <BlogPosts />
+    </main>
   );
 }
